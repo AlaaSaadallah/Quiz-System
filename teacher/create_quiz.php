@@ -45,7 +45,7 @@
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             <label>Question</label>
         </div>
-
+        
         <div class="input-group">
             <div class="input-group-text">
                 <div class="form-check form-check-success">
@@ -85,6 +85,13 @@
             </div>
             <input type="text" class="form-control" aria-label="Text input with radio button">
         </div>
+        <br>
+        <div class="col-sm-4 mb-1">
+                                                <div class="input-group input-group-sm mb-3">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">Degree</span>
+                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                </div>
+                                            </div>
     </div>
 </div>
 <a href="#" class="btn icon btn-primary" style="float: right;"><i data-feather="user"></i> <svg class="bi" width="1em" height="1em" fill="currentColor">
