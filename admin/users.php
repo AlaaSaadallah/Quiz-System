@@ -1,10 +1,11 @@
 <?php
-include "./queries.php";
+// include "./queries.php";
 // include "./connection.php"
+session_start();
 ?>
 
 
-<h1>users page</h1>
+<!-- <h1>users page</h1> -->
 
 <div class="card">
     <div class="card-header">
@@ -35,12 +36,11 @@ include "./queries.php";
                         <div class="avatar me-3">
                             <img src="dashboardTemplate/dist/assets/images/faces/1.jpg" alt="" srcset="">
                         </div><?php echo $x['FName'] ." " .$x['LName'] ?>
-                        <!-- <input type="text" value="<?php //echo $x=['Email'] ?>" > -->
                     </td>
                     <td><?php echo $x['role']. $x['UserID'] ?></td>
 
                     <td colspan="3">
-                        <a href="<?php echo '?email='. $x['Email'].'/title=profile'?>"class="btn-sm icon icon-left btn-primary" style="margin-right: 2%;"><i data-feather="edit"></i>
+                        <a href="<?php echo '?email='. $x['Email'].'&title=profile'?>"class="btn-sm icon icon-left btn-primary" style="margin-right: 2%;"><i data-feather="edit"></i>
                             View</a>
                             
                         <a href="<?php echo '?email='. $x['Email'].'&'.'title=admin/user_edit';?> "class="btn-sm icon icon-left btn-warning" style="margin-right: 2%;"><i data-feather="alert-triangle"></i>
@@ -57,44 +57,6 @@ include "./queries.php";
                     
                 ?>
 
-                <!-- <tr>
-                    <td>
-                        <div class="avatar me-3">
-                            <img src="dashboardTemplate/dist/assets/images/faces/1.jpg" alt="" srcset="">
-                        </div>Graiden
-                    </td>
-                    <td>teacher</td>
-
-                    <td colspan="3">
-                        <a href="#" class="btn-sm icon icon-left btn-primary" style="margin-right: 2%;"><i data-feather="edit"></i>
-                            View</a>
-
-                        <a href="#" class="btn-sm icon icon-left btn-warning" style="margin-right: 2%;"><i data-feather="alert-triangle"></i>
-                            Edit</a>
-
-                        <a href="#" class="btn-sm icon icon-left btn-danger" style="margin-right: 2%;"><i data-feather="alert-circle"></i>
-                            Delete</a>
-                    </td>
-                </tr> -->
-                <!-- <tr> -->
-                    <!-- <td>
-                        <div class="avatar me-3">
-                            <img src="dashboardTemplate/dist/assets/images/faces/1.jpg" alt="" srcset="">
-                        </div>Graiden
-                    </td>
-                    <td>teacher</td>
-
-                    <td colspan="3">
-                        <a href="#" class="btn-sm icon icon-left btn-primary" style="margin-right: 2%;"><i data-feather="edit"></i>
-                            View</a>
-
-                        <a href="#" class="btn-sm icon icon-left btn-warning" style="margin-right: 2%;"><i data-feather="alert-triangle"></i>
-                            Edit</a>
-
-                        <a href="#" class="btn-sm icon icon-left btn-danger" style="margin-right: 2%;"><i data-feather="alert-circle"></i>
-                            Delete</a>
-                    </td>
-                </tr> -->
             </tbody>
         </table>
     </div>

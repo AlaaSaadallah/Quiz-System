@@ -4,7 +4,8 @@
 <head>
 
     <?php
-    include "../queries.php";
+    // include "../queries.php";
+    session_start();
     
     ?>
 </head>
@@ -26,7 +27,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control" name="fname" value="<?php echo $UserData['FName'] ?>" readonly>
+                                            <input type="text" class="form-control" name="fname" value="<?php ////echo $UserData['FName'] ?>" readonly>
                                             <div class="form-control-icon">
 
                                                 <i class="bi bi-person"></i>
@@ -40,7 +41,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control" name="lname" value="<?php echo $UserData['LName'] ?>"readonly>
+                                            <input type="text" class="form-control" name="lname" value="<?php ////echo $UserData['LName'] ?>"readonly>
                                             <div class="form-control-icon">
                                                 <i class="bi bi-person"></i>
                                             </div>
@@ -121,7 +122,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="email" class="form-control" value="<?php echo $UserData['Email'] ?>" id="first-name-icon" name="email" readonly>
+                                            <input type="email" class="form-control" value="<?php ////echo $UserData['Email'] ?>" id="first-name-icon" name="email" readonly>
                                             <div class="form-control-icon">
                                                 <i class="bi bi-envelope"></i>
                                             </div>
@@ -134,7 +135,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control" name="password" value="<?php echo $role1['Password'] ?>" readonly>
+                                            <input type="text" class="form-control" name="password" value="<?php ////echo $role1['Password'] ?>" readonly>
                                             <div class="form-control-icon">
                                                 <i class="bi bi-lock"></i>
                                             </div>

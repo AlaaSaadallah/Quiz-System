@@ -1,30 +1,9 @@
 <?php
 include "connection.php";
-echo "queries.php";
+// //echo "queries";
 // include "index.php";
     // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-    // CHECK LOGIN 
-    if(isset($_POST['login'])){
-       
-        if ((empty($_POST ['email'])) ){
-            echo "please enter your email";
-        }else if((empty($_POST ['password'])) ){
-            echo "please enter your password";
-        }elseif((empty($_POST ['role']))){
-            echo "please enter your role";
-        }else{
-            $email = $_POST ['email'];
-            $password = $_POST ['password'];
-            $role = $_POST ['role'];
-        $check = mysqli_query($conn, "SELECT * FROM `Login` WHERE `Email`='$email' AND `Password`='$password' AND `role`='$role'");
-        if (mysqli_num_rows($check)>0){
-            // echo 'success';
-        }else{
-            // echo "login faild <br> "."SELECT * FROM `Login` WHERE `Email`='$email' AND `Password`='$password' AND `role`='$role'";
-        }
-    }
-}
     // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
 // ADD USER QUERIES
@@ -40,34 +19,18 @@ if(isset($_POST['addUser'])){
     
     if ($role == 'admin'){
         $UserData = mysqli_query($conn, "INSERT INTO `Admin`(`FName`, `LName`, `DateOfBirth`, `Email`) VALUES ('$fname', '$lname', '$dateOfBirth', '$email')");
-        echo "INSERT INTO `Admin`(`FName`, `LName`, `DateOfBirth`, `Email`) VALUES ('$fname', '$lname', '$dateOfBirth', '$email')";
+        //echo "INSERT INTO `Admin`(`FName`, `LName`, `DateOfBirth`, `Email`) VALUES ('$fname', '$lname', '$dateOfBirth', '$email')";
     }elseif ($role == 'teacher') {
         $UserData = mysqli_query($conn, "INSERT INTO `Teacher`(`FName`, `LName`, `DateOfBirth`, `Email`) VALUES ('$fname', '$lname', '$dateOfBirth', '$email')");
-        echo"INSERT INTO `Teacher`(`FName`, `LName`, `DateOfBirth`, `Email`) VALUES ('$fname', '$lname', '$dateOfBirth', '$email')";
+        //echo"INSERT INTO `Teacher`(`FName`, `LName`, `DateOfBirth`, `Email`) VALUES ('$fname', '$lname', '$dateOfBirth', '$email')";
     }elseif ($role == 'student') {
         $UserData = mysqli_query($conn, "INSERT INTO `Student`(`FName`, `LName`, `DateOfBirth`, `grade`, `Email`) VALUES ('$fname', '$lname', '$dateOfBirth', '$grade', '$email')");
-        echo "INSERT INTO `Student`(`FName`, `LName`, `DateOfBirth`, `grade`, `Email`) VALUES ('$fname', '$lname', '$dateOfBirth', '$grade', '$email')";
+        //echo "INSERT INTO `Student`(`FName`, `LName`, `DateOfBirth`, `grade`, `Email`) VALUES ('$fname', '$lname', '$dateOfBirth', '$grade', '$email')";
     }
     $LoginTable = mysqli_query($conn, "INSERT INTO `Login`(`Email`, `Password`,`role`) VALUES ('$email','$password', '$role')");
     
-    //   if ($UserData ){
-        //   echo "INSERT INTO `Login`(`Email`, `Password`,`role`) VALUES ('$email','$password', '$role')";
-        // $mysqli->commit();
-        // echo "success";
-    // //     echo '<div class="swal2-container swal2-center swal2-backdrop-show" style="overflow-y: auto;"><div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-icon-success swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="display: flex;"><div class="swal2-header"><ul class="swal2-progress-steps" style="display: none;"></ul><div class="swal2-icon swal2-error" style="display: none;"></div><div class="swal2-icon swal2-question" style="display: none;"></div><div class="swal2-icon swal2-warning" style="display: none;"></div><div class="swal2-icon swal2-info" style="display: none;"></div><div class="swal2-icon swal2-success swal2-icon-show" style="display: flex;"><div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
-    // //     <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
-    // //     <div class="swal2-success-ring"></div> <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
-    // //     <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
-    // //   </div><img class="swal2-image" style="display: none;"><h2 class="swal2-title" id="swal2-title" style="display: flex;">Success</h2><button type="button" class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button></div><div class="swal2-content"><div id="swal2-content" class="swal2-html-container" style="display: none;"></div><input class="swal2-input" style="display: none;"><input type="file" class="swal2-file" style="display: none;"><div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select class="swal2-select" style="display: none;"></select><div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox" class="swal2-checkbox" style="display: none;"><input type="checkbox"><span class="swal2-label"></span></label><textarea class="swal2-textarea" style="display: none;"></textarea><div class="swal2-validation-message" id="swal2-validation-message"></div></div><div class="swal2-actions"><div class="swal2-loader"></div><button type="button" class="swal2-confirm swal2-styled" aria-label="" style="display: inline-block;">OK</button><button type="button" class="swal2-deny swal2-styled" aria-label="" style="display: none;">No</button><button type="button" class="swal2-cancel swal2-styled" aria-label="" style="display: none;">Cancel</button></div><div class="swal2-footer" style="display: none;"></div><div class="swal2-timer-progress-bar-container"><div class="swal2-timer-progress-bar" style="display: none;"></div></div></div></div>';
-    }   
-    // else { 
-        // $mysqli_rollback() ;
-        // echo "faild <br>";
-    //     echo "INSERT INTO `User`( `Fname`, `Lname`, `DateOfBirth`, `Role`, `Subject`, `Grade`) VALUES ('$fname','$lname','$dateOfBirth',$role,'$subject','$grade')" ;
-    //     echo "<br>". "INSERT INTO `Login`(`Email`, `Password`) VALUES ('$email','$password')" ;
-    
-// }
-// }
+ 
+}
     // -----------------------------------------------------------------------------------------------------------------------------------------------------
 // Show All Users
 $TeacherData = mysqli_query($conn, "SELECT * FROM Login INNER JOIN Teacher ON Login.Email = Teacher.Email " );
@@ -91,7 +54,7 @@ $UserData = mysqli_fetch_array(mysqli_query($conn, (
 if(isset($_POST['edit_user'])){
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
-    $dateOfBirth = $_POST['date'];
+    // $dateOfBirth = $_POST['date'];
     $role = $_POST['role'];
     $grade = $_POST['grade'];
     $subject = $_POST['subject'];
@@ -100,34 +63,118 @@ if(isset($_POST['edit_user'])){
     
     if ($role == 'admin'){
         $UserData = mysqli_query($conn, "UPDATE `Admin` SET `FName` = '$fname' , `LName` = '$lname', `Email` = '$email' WHERE Email='$mail' ");
+        //echo "UPDATE `Admin` SET `FName` = '$fname' , `LName` = '$lname', `Email` = '$email' WHERE Email='$mail' ";
     }elseif ($role == 'teacher') {
         $UserData = mysqli_query($conn, "UPDATE `Teacher` SET `FName` = '$fname', `LName` = '$lname',  `Email` = '$email' WHERE Email='$mail'");
+        //echo "UPDATE `Teacher` SET `FName` = '$fname', `LName` = '$lname',  `Email` = '$email' WHERE Email='$mail'";
     }elseif ($role == 'student') {
         $UserData = mysqli_query($conn, "UPDATE `Student`SET `FName` = '$fname', `LName` = '$lname',  `grade` = '$grade', `Email` = '$email') WHERE Email='$mail'");
+        //echo "UPDATE `Student`SET `FName` = '$fname', `LName` = '$lname',  `grade` = '$grade', `Email` = '$email') WHERE Email='$mail'";
     }
     $LoginTable = mysqli_query($conn, "UPDATE `Login` SET `Email` =  '$email', `Password` = '$password' WHERE `Email` = '$mail' ");
+   //echo "UPDATE `Login` SET `Email` =  '$email', `Password` = '$password' WHERE `Email` = '$mail' ";
+//     $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+//   //echo "<script language='javascript' type='text/javascript'> Location.href='$url'</script>" ; 
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
-echo $_POST['role'];
+
 // Delete User Queries
 if(isset($_POST['delete_user'])){
     
      
     $delete = mysqli_query($conn , "DELETE FROM `Admin` WHERE `Email` = '$mail'");
-    echo "DELETE FROM `Admin` WHERE `Email` = '$mail'";
+    //echo "DELETE FROM `Admin` WHERE `Email` = '$mail'";
 
     $delete = mysqli_query($conn , "DELETE FROM `Teacher` WHERE `Email` = '$mail'");
-    echo "DELETE FROM `Teacher` WHERE `Email` = '$mail'";
+    //echo "DELETE FROM `Teacher` WHERE `Email` = '$mail'";
 
     $delete = mysqli_query($conn , "DELETE FROM `Student` WHERE `Email` = '$mail'");
-    echo "DELETE FROM `Student` WHERE `Email` = '$mail'";
+    //echo "DELETE FROM `Student` WHERE `Email` = '$mail'";
 
     $LoginTable = mysqli_query($conn, "DELETE FROM `Login` WHERE `Email` = '$mail' ");
-    echo "DELETE FROM `Admin` WHERE `Email` = '$mail'";
+    //echo "DELETE FROM `Admin` WHERE `Email` = '$mail'";
    
 
 }
+// -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Create Quiz
+$i =0;
+$Title = $_POST['title'];
+$qestion = $_POST['questionBody'];
+$rightAnswer = $_POST['Success'];
+$answer1 = $_POST['answer1'];
+$answer2 = $_POST['answer2'];
+$answer3 = $_POST['answer3'];
+$answer4 = $_POST['answer4'];
+
+$grade = $_POST['grade'];
+$degree = $_POST['degree'];
+$getGrade = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `Subject`"));
 
 
+if(isset($_POST['addQuiz'])){
+    if(!empty($qestion)) {
+        
+        $insertQuiz= mysqli_query($conn,"INSERT INTO `Quiz`(`QuizName`, `SubID`) VALUES('$Title',$getGrade[SubID])");
+        $quizID = mysqli_insert_id($conn);
+// //echo "INSERT INTO `Quiz`(`QuizName`, `SubID`) VALUES('$Title',$getGrade[SubID])";
+        
+        $count = count ($answer);
+        // foreach($questionAnswers as $q => $answers){
+    for ($i = 0 ; $i<$count; $i++){
+    $insertQuestion = mysqli_query($conn,
+                "INSERT INTO `Question`(`QuizID`, `QuestionBody`,  `1st` ,`2nd`,`3rd`,`4th`) 
+                VALUES
+                ($quizID, '$qestion', '$answer1','$answer2','$answer3','$answer4')
+                 ");
+            }
+            $model= mysqli_query($conn,"INSERT INTO `ModelAnswer`(`QuizID`, `QuestionBody`, `CorrectAns`, `Degree`) VALUES($quizID, '$qestion',$rightAnswer,'$degree')");
+            // //echo "INSERT INTO `ModelAnswer`(`QuizID`, `QuestionBody`, `CorrectAns`, `Degree`) VALUES($quizID, '$qestion',$rightAnswer,'$degree')";
+            // //echo $quizID;
+        }
+    
+}
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------
+// List all quizes
+$quizid=$_GET['quizid'];
+$QuizData1 = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `Quiz` INNER JOIN `Subject` ON Quiz.SubID = Subject.SubID " ));
+$QuizData = mysqli_query($conn, "SELECT * FROM `Quiz` INNER JOIN `Subject` ON Quiz.SubID = Subject.SubID " );
+
+$quizTeacher = mysqli_fetch_array(mysqli_query($conn , "SELECT * FROM `Teacher` INNER JOIN `Subject` ON Teacher.UserID = Subject.UserID " ));
+$quizQuestion = mysqli_query($conn , "Select * From `Question` WHERE `QuizID`= $quizid ");
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+if(isset($_POST['answer'])){
+    $quizid= $_GET['quizid'];
+    $student = $_GET['email'];
+    $QuizData = mysqli_query($conn, "SELECT * FROM `Quiz` INNER JOIN `Subject` ON Quiz.SubID = Subject.SubID " );
+
+$quizTeacher = mysqli_fetch_array(mysqli_query($conn , "SELECT * FROM `Teacher` INNER JOIN `Subject` ON Teacher.UserID = Subject.UserID " ));
+
+  
+$studentId = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `Student` WHERE  `Email` = '$student'"));
+//echo "SELECT * FROM `Student` WHERE  `Email` = '$student'";
+
+$QuestionId= mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `Quiz` INNER JOIN `Question` WHERE Quiz.QuizID = Question.QuizID "));
+$answer = $_POST['Success'];
+$modelans = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `ModelAnswer` INNER JOIN `Question` WHERE ModelAnswer.QuizID = Question.QuizID"));
+if($answer == $modelans['CorrectAns'] ){
+mysqli_query($conn, "INSERT INTO `Result`(`StudentID`, `QuizID`, `QuestionID`, `StudentAnswer`, `Score`) VALUES ($studentId[UserID] ,$quizid,$QuestionId[ID],'$answer','$modelans[degree]') ");
+//echo 1 ;
+}else{
+    mysqli_query($conn, "INSERT INTO `Result`(`StudentID`, `QuizID`, `QuestionID`, `StudentAnswer`, `Score`) VALUES ($studentId[UserID] ,$quizid,$QuestionId[ID],'$answer',0) ");
+//echo "INSERT INTO `Result`(`StudentID`, `QuizID`, `QuestionID`, `StudentAnswer`, `Score`) VALUES ($studentId[UserID] ,$quizid,$QuestionId[ID],'$answer',0)";
+}
+$score = mysqli_query($conn , "SELECT `Score` FROM `Result` WHERE `StudentID` = $studentId[UserID]");
+$msg = "$studentId[FName]. $studentId[LName]. $score";
+//echo $msg;
+mail("$quizTeacher[email]","$QuizData[QuizName]",$msg);
+
+}
 ?>

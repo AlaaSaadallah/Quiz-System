@@ -4,7 +4,8 @@
 <head>
 
     <?php
-    include "../queries.php";
+    session_start();
+ 
     
     ?>
 </head>
@@ -17,7 +18,7 @@
             </div>
             <div class="card-content">
                 <div class="card-body">
-                    <form class="form form-horizontal" action="" method="post">
+                    <form class="form form-horizontal"  method="post">
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-4">
@@ -26,7 +27,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control" name="fname" value="<?php echo $UserData['FName'] ?>">
+                                            <input type="text" class="form-control" name="fname" value="<?php echo $UserData['FName']; ?>">
                                             <div class="form-control-icon">
 
                                                 <i class="bi bi-person"></i>
@@ -145,7 +146,8 @@
                                 </div>
 
                                 <div class="col-12 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary me-1 mb-1" name="edit_user">Edit</button>
+                                    <button type="submit" class="btn btn-primary me-1 mb-1"  name="edit_user">Edit</button>
+
                             </div>
                         </div>
                     </form>
@@ -153,3 +155,4 @@
             </div>
         </div>
     </div>
+  

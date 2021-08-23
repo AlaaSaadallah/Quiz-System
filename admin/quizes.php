@@ -1,12 +1,15 @@
 <!-- list quizes like users > Actions: view - edit - delete - student result -->
 
-<h1>Quizes page</h1>
+
+<?php
+session_start();
+?>
 
 <div class="card">
     <div class="card-header">
         Quizes
         <span style="float: right;">
-            <a href="#" class="btn-sm icon icon-left btn-success"><i data-feather="alert-circle" style="float: right;"></i>
+            <a href="<?php echo '?title=teacher/create_quiz'?>" class="btn-sm icon icon-left btn-success"><i data-feather="alert-circle" style="float: right;"></i>
                 Create Quiz</a>
         </span>
     </div>
@@ -22,28 +25,32 @@
                 </tr>
             </thead>
             <tbody>
+            <?php
+                    
+                    while($x=mysqli_fetch_array($QuizData)) 
+                    { 
+                 ?> 
                 <tr>
-                    <td>Test 1</td>
-                    <td>English</td>
+                    <td><?php echo $x['QuizName'] ?></td>
+                    <td><?php echo $x['SubName'] ?></td>
                     <td>
                         <div class="avatar me-3">
                             <img src="dashboardTemplate/dist/assets/images/faces/1.jpg" alt="" srcset="">
-                        </div>Graiden
-                    Teacher</td>
-                    <td>Grade 1</td>
+                        </div><?php echo $quizTeacher['FName'].$quizTeacher['LName'] ?>
+                    </td>
+                    <td><?php echo $x['grade'] ?></td>
 
                     <td colspan="3">
-                        <a href="/quizSystem/profile.php" class="btn-sm icon icon-left btn-primary" style="margin-right: 2%;"><i data-feather="edit"></i>
+                        <a href="<?php echo '?quizid='. $x['QuizID'].'&title=teacher/quiz_view'?>" class="btn-sm icon icon-left btn-primary" style="margin-right: 2%;"><i data-feather="edit"></i>
                             View</a>
 
-                        <a href="/quizSystem/admin/user_edit.php" class="btn-sm icon icon-left btn-warning" style="margin-right: 2%;"><i data-feather="alert-triangle"></i>
-                            Edit</a>
+                       
 
-                        <a href="#" class="btn-sm icon icon-left btn-danger" style="margin-right: 2%;"><i data-feather="alert-circle"></i>
+                        <a href="<?php echo '?email='. $x['Email'].'&title=teacher/quiz_delete'?>" class="btn-sm icon icon-left btn-danger" style="margin-right: 2%;"><i data-feather="alert-circle"></i>
                             Delete</a>
                     </td>
                 </tr>
-
+<?php } ?>
                 
             </tbody>
         </table>

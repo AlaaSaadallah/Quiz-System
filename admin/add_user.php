@@ -1,6 +1,7 @@
 <!-- <link rel="stylesheet" href="dashboardTemplate/dist/assets/vendors/sweetalert2/sweetalert2.min.css"> -->
 <?php
-include "./queries.php";
+// include "./queries.php";
+session_start();
 ?>
 <section id="multiple-column-form">
     <h1>Add User</h1>
@@ -62,9 +63,9 @@ include "./queries.php";
                                         <label for="country-floating">Grade</label>
                                         <select class="form-select" id="GradeSelect" name="grade">
                                             <option value="" disabled selected>Select Grade</option>
-                                            <option value="g1">Grade 1</option>
-                                            <option value="g2">Grade 2</option>
-                                            <option value="g3">Grade 3</option>
+                                            <option value="grade 1">Grade 1</option>
+                                            <option value="grade 2">Grade 2</option>
+                                            <option value="grade 3">Grade 3</option>
                                         </select>
                                     </div>
                                 </div>

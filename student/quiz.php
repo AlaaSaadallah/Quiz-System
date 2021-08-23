@@ -24,6 +24,7 @@ session_start();
                     while($x=mysqli_fetch_array($quizQuestion)) 
                     { 
                  ?> 
+                 <form method="post" >
             <div class="form-group with-title mb-3">
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="questionBody" readonly><?php echo $x['QuestionBody'] ?></textarea>
                 <label>Question</label>
@@ -36,7 +37,7 @@ session_start();
                         <input class="form-check-input" name="Success" id="Success" type="radio" value="1" aria-label="Radio button for following text input" readonly>
                     </div>
                 </div>
-                <input type="text" class="form-control" name="answer1"aria-label="Text input with radio button" value="<?php echo $x['1st'] ?>" disabled>
+                <input type="text" class="form-control" name="answer1"aria-label="Text input with radio button" value="<?php echo $x['1st'] ?>" >
             </div>
             <br>
             <div class="input-group">
@@ -45,7 +46,7 @@ session_start();
                         <input class="form-check-input" name="Success" id="Success" type="radio" value="2" aria-label="Radio button for following text input" readonly>
                     </div>
                 </div>
-                <input type="text" class="form-control" name="answer2" aria-label="Text input with radio button" value="<?php echo $x['2nd'] ?>" disabled>
+                <input type="text" class="form-control" name="answer2" aria-label="Text input with radio button" value="<?php echo $x['2nd'] ?>" >
             </div>
             <br>
             <div class="input-group">
@@ -54,7 +55,7 @@ session_start();
                         <input class="form-check-input" name="Success" id="Success" type="radio" value="3" aria-label="Radio button for following text input" readonly>
                     </div>
                 </div>
-                <input type="text" class="form-control" name="answer3" aria-label="Text input with radio button" value="<?php echo $x['3rd'] ?>" disabled>
+                <input type="text" class="form-control" name="answer3" aria-label="Text input with radio button" value="<?php echo $x['3rd'] ?>" >
             </div>
             <br>
             <div class="input-group">
@@ -63,10 +64,11 @@ session_start();
                         <input class="form-check-input" name="Success" id="Success" type="radio" value="4" aria-label="Radio button for following text input" readonly>
                     </div>
                 </div>
-                <input type="text" class="form-control" name="answer4" aria-label="Text input with radio button" value="<?php echo $x['4th'] ?>" disabled>
+                <input type="text" class="form-control" name="answer4" aria-label="Text input with radio button" value="<?php echo $x['4th'] ?>" >
             </div>
             <br>
-       
+            <button type="submit" class="btn btn-primary me-1 mb-1" name="answer">Submit</button>
+                    </form>
             <?php  } ?>
         </div>
     </div>
